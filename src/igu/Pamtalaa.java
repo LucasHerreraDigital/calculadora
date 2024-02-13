@@ -165,9 +165,11 @@ public class Pamtalaa extends JFrame {
 		JButton igual = new JButton("=");
 		igual.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				if (resultado.getText() != "") {
+					segundoNum = Integer.parseInt(resultado.getText());
+					
+				}
 				
-				segundoNum = Integer.parseInt(resultado.getText());
-				resultado.setText("");
 				
 				switch (operacion) {
 				case "+":
@@ -186,8 +188,6 @@ public class Pamtalaa extends JFrame {
 					resultadoFinal =primerNum / segundoNum ;
 					resultado.setText(String.valueOf(resultadoFinal) );
 					break;
-				case "":
-					break;
 				default:
 					break;
 				} 
@@ -201,7 +201,7 @@ public class Pamtalaa extends JFrame {
 		
 		JButton button0 = new JButton("0");
 		button0.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { 
 				resultado.setText(resultado.getText()+"0");
 			}
 		});
